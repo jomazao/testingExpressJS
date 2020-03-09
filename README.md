@@ -9,5 +9,13 @@ Actividades a realizar
 crear endpoints para 
 
 Countries 
+  id
+  name
 Developers
+  id
+  name
+  lastname
+  address
+  country
+  
 
