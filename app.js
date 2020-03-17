@@ -1,22 +1,28 @@
 var express = require('express');
+const cors = require('cors');
 var app = express();
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cors());
 var user1 = {
     "name" : "Andres",
-    "lastName" : "Torres"
+    "lastname" : "Torres"
 } 
 var user2 = {
     "name" : "Camila",
-    "lastName" : "Garcia"
+    "lastname" : "Garcia"
 }
 var user3 = {
     "name" : "Hollman",
-    "lastName" : "Ortiz"
+    "lastname" : "Ortiz"
+}  
+var user4 = {
+    "name" : "Alexandra",
+    "lastname" : "Galindo"
 }  
 
-var users = [ user1, user2, user3 ]
+var users = [ user1, user2, user3,user4 ]
 
 
 
@@ -41,8 +47,8 @@ app.get('/vehicules', function (req, res) {
 
 
 app.post('/users', function (req, res) {
-    console.log(req.body)
-    res.send(req.body);
+    users.push(req.body)
+    res.redirect('back');
 }); 
 
 app.listen(3000, function () {
